@@ -17,4 +17,7 @@ class FrontController extends Controller
     public function users() {
         return view('front.users');
     }
+    public function login_page() {
+        return view('front.login');
+    }
 }

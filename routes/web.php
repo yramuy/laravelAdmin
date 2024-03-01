@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontController::class, 'index'])->name('index');
 Route::get('dashboard', [FrontController::class, 'dashboard'])->name('dashboard');
 Route::get('users', [FrontController::class, 'users'])->name('users');
+Route::get('login', [FrontController::class, 'login_page'])->name('loginPage');
+Route::post('api/postData', [ApiController::class, 'postData'])->name('api/postData');
