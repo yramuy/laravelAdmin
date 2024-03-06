@@ -1,7 +1,7 @@
 @extends('layouts.default')
 
-@section('title', 'Dashboard')
+@section('title', 'Home')
 
 @section('content')
-    <p>This is a dashboard.</p>
+    <p>This is a Home.</p>
 @endsection

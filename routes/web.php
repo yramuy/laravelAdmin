@@ -22,5 +22,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontController::class, 'index'])->name('index');
 Route::get('dashboard', [FrontController::class, 'dashboard'])->name('dashboard');
 Route::get('users', [FrontController::class, 'users'])->name('users');
-Route::get('login', [FrontController::class, 'login_page'])->name('loginPage');
+Route::get('login', [FrontController::class, 'login_page'])->name('login');
+Route::get('logout', [FrontController::class, 'logout_page'])->name('logout');
+Route::post('category/store', [FrontController::class, 'categoryStore'])->name('category/store');
+Route::get('category/list', [FrontController::class, 'category_list'])->name('category/list');
+Route::get('category/edit/{id}', [FrontController::class, 'category_edit'])->name('category.edit');
+
 Route::post('api/postData', [ApiController::class, 'postData'])->name('api/postData');
+Route::get('categoryList', [ApiController::class, 'category_list'])->name('categoryList');

@@ -11,6 +11,9 @@
         <li class="nav-item d-none d-sm-inline-block">
             <a href="#" class="nav-link">Contact</a>
         </li>
+        @if (session('success'))
+            <div class="alert alert-success" id="autoCloseAlert">{{ session('success') }}</div>
+        @endif
     </ul>
 
     <!-- Right navbar links -->
@@ -27,7 +30,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                 <div class="dropdown-divider"></div>
-                <a href="logout.php" class="dropdown-item">
+                <a href="{{ route('logout') }}" class="dropdown-item">
                     <i class="fa fa-address-book mr-2" aria-hidden="true"></i> Logout
                 </a>
                 <div class="dropdown-divider"></div>

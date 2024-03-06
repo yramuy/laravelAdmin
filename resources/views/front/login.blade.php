@@ -144,10 +144,11 @@
                 <!-- Warning Alert -->
                 <br />
                 <!-- Example alert with auto close -->
-                <?php //if (isset($_GET['message'])) {
+                <?php // Using the session() helper function
+                $msg = session('msg');
                 ?>
                 <div class="alert alert-success alert-dismissible fade show" role="alert" id="autoCloseAlert">
-                    <?php //echo $_GET['message'];
+                    <?php echo $msg;
                     ?>
                 </div>
                 <?php// } ?>

@@ -1,4 +1,13 @@
 <html>
+<?php
+$user = session('email'); // Check if the user is authenticated
+?>
+
+@if ($user == '')
+    <script>
+        window.location = "{{ route('login') }}";
+    </script>
+@endif
 
 <body class="hold-transition sidebar-mini layout-fixed">
     @include('partials.header')

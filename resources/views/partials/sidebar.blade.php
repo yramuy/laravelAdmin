@@ -1,3 +1,21 @@
+
+<?php
+// Check if the request is HTTP or HTTPS
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
+
+// Get the server name
+$server_name = $_SERVER['SERVER_NAME'];
+
+// Get the request URI
+$request_uri = $_SERVER['REQUEST_URI'];
+
+// Construct the full URL
+$current_url = $protocol . $server_name . $request_uri;
+
+// Output the current URL
+$url = explode("/", $current_url);
+
+?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index.php" class="brand-link">
@@ -13,8 +31,11 @@
                 <img src="{{ asset('dist/img/user8-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
+                <?php // Using the session() helper function
+                $user = session('email');
+                ?>
                 <a href="#" class="d-block">
-                    JOHN Y
+                    <?php echo $user; ?>
                 </a>
             </div>
         </div>
@@ -37,7 +58,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href={{route('dashboard')}} class="nav-link">
+                    <a href={{ route('dashboard') }} class="nav-link <?php echo $url[3] == 'dashboard' ? 'active': '';?>">
                         <i class="fas fa-tachometer-alt nav-icon"></i>
                         <p>
                             Dashboard
@@ -46,7 +67,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('users')}}" class="nav-link ">
+                    <a href="{{ route('users') }}" class="nav-link <?php echo $url[3] == 'users' ? 'active': '';?>">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
@@ -54,7 +75,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="modules/categoryList.php" class="nav-link ">
+                    <a href="{{ route('category/list') }}" class="nav-link <?php echo $url[3] == 'category' ? 'active': '';?>">
                         <i class="nav-icon fas fa-folder"></i>
                         <p>
                             Categories

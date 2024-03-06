@@ -45,3 +45,47 @@
 <script src="{{ asset('dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script>
+
+<script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
+
+<script>
+    $(function() {
+
+        $('#category_form').validate({
+            rules: {
+                category: {
+                    required: true,
+                    minlength: 3
+                },
+            },
+            messages: {
+                category: {
+                    required: "Please enter a category"
+                },
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        window.setTimeout(function() {
+            $("#autoCloseAlert").alert('close');
+        }, 3000);
+    });
+
+    function editCategory(id) {
+        alert(id);
+    }
+</script>
