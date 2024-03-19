@@ -50,8 +50,9 @@ class FrontController extends Controller
     public function category_list() {
         $categories = Category::orderBy('id', 'desc')->get();
         // print_r($categories);die;
+        return response()->json($categories);
 
-        return view('front.category', compact('categories'));
+        // return view('front.category', compact('categories'));
     }
 
     public function category_edit($id) {

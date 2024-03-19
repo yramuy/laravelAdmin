@@ -42,11 +42,7 @@ class ApiController extends Controller
 
             return Redirect::route('dashboard');
         } else {
-            // return response()->json([
-            //     'status' => 'success2',
-            //     'statusCode' => $statusCode,
-            //     'data' => $data,
-            // ]);
+
             session(
                 [
                     'msg' => $data['message']
