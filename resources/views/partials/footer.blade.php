@@ -83,6 +83,18 @@
         window.setTimeout(function() {
             $("#autoCloseAlert").alert('close');
         }, 3000);
+
+        loadCategories();
+
+        function loadCategories() {
+            $.ajax({
+                url: "http://127.0.0.1:8000/api/category/list",
+                type: "GET",
+                success: function(response) {
+                    console.log(response)
+                }
+            });
+        }
     });
 
     function editCategory(id) {
