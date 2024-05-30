@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Registration</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -86,21 +86,30 @@
 
             </div>
             <!-- <h2>Admin Login</h2> -->
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('otp.store') }}">
                 @csrf
+                <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Username">
+
+                </div>
+                <input type="hidden" class="form-control" id="role_id" name="role_id" value="1">
+                <input type="hidden" class="form-control" id="role_name" name="role_name" value="Super Admin">
                 <div class="form-group">
                     <label for="username">Email</label>
                     <input type="email" class="form-control" id="email" name="email" placeholder="Email">
 
                 </div>
+
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Password">
 
                 </div>
-                <div class="btn ml-5">
-                    <button type="submit" name="btn_login" class="btn btn-success" id="btnLogin">Login</button>
-                    <button type="button" name="btn_signup" class="btn btn-info" id="btnSignup">SignUp</button>
+                <div class="btn">
+
+                    <button type="submit" name="btn_signup" class="btn btn-info" id="btnLogin">SignUp</button>
+                    <a href={{ route('login')}}>Already you have account?</a>
 
                 </div>
 
@@ -132,14 +141,6 @@
     window.setTimeout(function() {
         document.getElementById('autoCloseAlert').remove();
     }, 3000);
-
-    $(document).ready(function() {
-        $('#btnSignup').click(function() {
-            window.location = "{{ route('registration') }}";
-        });
-    });
-
-
 
     // $('#btnLogin').click(function() {
 

@@ -23,10 +23,7 @@ class FrontController extends Controller
     {
         return view('front.users');
     }
-    public function login_page()
-    {
-        return view('front.login');
-    }
+
     public function logout_page()
     {
         // Flush all session data
@@ -62,4 +59,5 @@ class FrontController extends Controller
 
         return  view('front.category', compact('category', 'id'));
     }
+
 }

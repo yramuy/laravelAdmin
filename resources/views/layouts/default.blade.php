@@ -1,9 +1,7 @@
 <html>
-<?php
-$user = session('email'); // Check if the user is authenticated
-?>
 
-@if ($user == '')
+
+@if (auth()->user()->name == '')
     <script>
         window.location = "{{ route('login') }}";
     </script>

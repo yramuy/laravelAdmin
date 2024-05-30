@@ -32,19 +32,33 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <a class="btn btn-primary float-right" href="addClient.php">Add Client</a>
+                    <a class="btn btn-primary float-right mb-1" href={{ route('user.create')}}>Add User</a>
                     <table id="example1" class="table table-bordered table-striped">
                         <thead>
                             <tr>
                                 <th>SNo</th>
                                 <th>User Name</th>
                                 <th>Email</th>
-                                <th>Mobile Number</th>
-                                <th>State</th>
-                                <th>City</th>
-                                <th>Address</th>
+                                <th>Created At</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
+                        <body>
+                            @foreach($users as $key => $val)
+                            <tr>
+                                <th scope="row">{{++$key}}</th>
+                                <td>{{ $val->name  }}</td>
+                                <td>{{ $val->email }}</td>
+                                <td>{{ $val->created_at }}</td>
+                                <td>
+                                    <a href={{ route('user.edit', $val->id)}}
+                                        class="btn btn-info"><i class="fas fa-edit"></i></a>
+                                    <a href={{ route('user.show', $val->id)}} class="btn btn-danger"><i
+                                            class="fas fa-trash"></i></a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </body>
 
                     </table>
                 </div>

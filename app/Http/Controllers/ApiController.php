@@ -35,7 +35,7 @@ class ApiController extends Controller
                     'user_id' => $user['user_id'],
                     'mobileno' => $user['mobileno'],
                     'email' => $user['email'],
-                    'role_name' => $user['role_name'],
+                    // 'role_name' => $user['role_name'],
                     'msg' => $data['message']
                 ]
             );

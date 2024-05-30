@@ -1,7 +1,6 @@
-
 <?php
 // Check if the request is HTTP or HTTPS
-$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
+$protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
 
 // Get the server name
 $server_name = $_SERVER['SERVER_NAME'];
@@ -13,14 +12,14 @@ $request_uri = $_SERVER['REQUEST_URI'];
 $current_url = $protocol . $server_name . $request_uri;
 
 // Output the current URL
-$url = explode("/", $current_url);
+$url = explode('/', $current_url);
 
 ?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index.php" class="brand-link">
 
-        <span class="brand-text font-weight-light">Admin Panel</span>
+        <span class="brand-text font-weight-light">Laravel Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -31,11 +30,9 @@ $url = explode("/", $current_url);
                 <img src="{{ asset('dist/img/user8-128x128.jpg') }}" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <?php // Using the session() helper function
-                $user = session('email');
-                ?>
+
                 <a href="#" class="d-block">
-                    <?php echo $user; ?>
+                    {{ auth()->user()->name }}
                 </a>
             </div>
         </div>
@@ -58,7 +55,7 @@ $url = explode("/", $current_url);
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <li class="nav-item">
-                    <a href={{ route('dashboard') }} class="nav-link <?php echo $url[3] == 'dashboard' ? 'active': '';?>">
+                    <a href={{ route('dashboard') }} class="nav-link <?php echo $url[3] == 'dashboard' ? 'active' : ''; ?>">
                         <i class="fas fa-tachometer-alt nav-icon"></i>
                         <p>
                             Dashboard
@@ -67,7 +64,7 @@ $url = explode("/", $current_url);
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('users') }}" class="nav-link <?php echo $url[3] == 'users' ? 'active': '';?>">
+                    <a href="{{ route('user.index') }}" class="nav-link <?php echo $url[3] == 'user' ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
@@ -75,7 +72,7 @@ $url = explode("/", $current_url);
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('category/list') }}" class="nav-link <?php echo $url[3] == 'category' ? 'active': '';?>">
+                    <a href="{{ route('category/list') }}" class="nav-link <?php echo $url[3] == 'category' ? 'active' : ''; ?>">
                         <i class="nav-icon fas fa-folder"></i>
                         <p>
                             Categories

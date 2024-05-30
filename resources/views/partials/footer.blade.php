@@ -100,4 +100,17 @@
     function editCategory(id) {
         alert(id);
     }
+
+    // $('#btnCancel').click(function() {
+    //     $.ajax({
+    //         url: 'user.index',
+    //         type: "GET",
+    //         success: function() {
+    //             alert("Redirecting...");
+    //         },
+    //         error: function() {
+    //             alert("Failed to redirect.");
+    //         }
+    //     });
+    // });
 </script>
